@@ -1,23 +1,38 @@
 fun main() {
     println("Bem vindo ao Bytebank!")
 
-    val contaTodoroki = Conta()
-    contaTodoroki.titular = "Todoroki"
-    contaTodoroki.numeroConta = 123
-    contaTodoroki.saldo = 200.0
+//    val contaTodoroki = Conta()
+//    contaTodoroki.titular = "Todoroki"
+//    contaTodoroki.numeroConta = 123
+//    contaTodoroki.saldo = 200.0
+//
+//    val contaDeku = Conta()
+//    contaDeku.titular = "Deku"
+//    contaDeku.numeroConta = 134
+//    contaDeku.saldo = 300.0
+//
+//    println(contaTodoroki.titular)
+//    println(contaTodoroki.numeroConta)
+//    println(contaTodoroki.saldo)
+//    println("--------------------")
+//    println(contaDeku.titular)
+//    println(contaDeku.numeroConta)
+//    println(contaDeku.saldo)
 
-    val contaDeku = Conta()
-    contaDeku.titular = "Deku"
-    contaDeku.numeroConta = 134
-    contaDeku.saldo = 300.0
+    val numeroX = 10
+    var numeroY = numeroX
+    numeroY++
 
-    println(contaTodoroki.titular)
-    println(contaTodoroki.numeroConta)
-    println(contaTodoroki.saldo)
-    println("--------------------")
-    println(contaDeku.titular)
-    println(contaDeku.numeroConta)
-    println(contaDeku.saldo)
+    println("numeroX $numeroX")
+    println("numeroY $numeroY")
+
+    val contaJoao = Conta()
+    contaJoao.titular = "João"
+    var contaMaria = contaJoao
+    contaMaria.titular = "Maria"
+
+    println("titular da conta ${contaJoao.titular}")
+    println("titular da conta ${contaMaria.titular}")
 }
 
 class Conta(){
