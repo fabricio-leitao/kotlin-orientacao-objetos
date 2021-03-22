@@ -1,10 +1,10 @@
 fun main() {
     println("Bem vindo ao Bytebank!")
 
-    val contaTodoroki = Conta("Todoroki", 123)
+    val contaTodoroki = Conta(titular = "Todoroki", numeroConta = 123)
     contaTodoroki.deposita(200.0)
 
-    val contaDeku = Conta("Deku", 134)
+    val contaDeku = Conta(titular = "Deku", numeroConta = 134)
     contaDeku.deposita(300.0)
 
     println(contaTodoroki.titular)
@@ -47,7 +47,7 @@ fun main() {
 
 class Conta(
     var titular: String,
-    var numeroConta: Int
+    val numeroConta: Int = 0
 ) {
     var saldo = 0.0
         private set
@@ -80,19 +80,19 @@ class Conta(
 }
 
 fun testaCopiasEReferencias() {
-//    val numeroX = 10
-//    var numeroY = numeroX
-//    numeroY++
-//
-//    println("numeroX $numeroX")
-//    println("numeroY $numeroY")
-//
-//    val contaJoao = Conta("Joao")
-//    var contaMaria = contaJoao
-//    contaMaria.titular = "Maria"
-//
-//    println("titular da conta ${contaJoao.titular}")
-//    println("titular da conta ${contaMaria.titular}")
+    val numeroX = 10
+    var numeroY = numeroX
+    numeroY++
+
+    println("numeroX $numeroX")
+    println("numeroY $numeroY")
+
+    val contaJoao = Conta("Joao")
+    var contaMaria = contaJoao
+    contaMaria.titular = "Maria"
+
+    println("titular da conta ${contaJoao.titular}")
+    println("titular da conta ${contaMaria.titular}")
 }
 
 fun testaCondicoes(saldo: Double) {
