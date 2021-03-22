@@ -1,14 +1,10 @@
 fun main() {
     println("Bem vindo ao Bytebank!")
 
-    val contaTodoroki = Conta()
-    contaTodoroki.titular = "Todoroki"
-    contaTodoroki.numeroConta = 123
+    val contaTodoroki = Conta("Todoroki", 123)
     contaTodoroki.deposita(200.0)
 
-    val contaDeku = Conta()
-    contaDeku.titular = "Deku"
-    contaDeku.numeroConta = 134
+    val contaDeku = Conta("Deku", 134)
     contaDeku.deposita(300.0)
 
     println(contaTodoroki.titular)
@@ -39,7 +35,7 @@ fun main() {
     println("----------------------------------")
     println("Transferencia da conta do Deku para o Todoroki")
 
-    if(contaDeku.transfere(100.0, contaTodoroki)){
+    if (contaDeku.transfere(100.0, contaTodoroki)) {
         println("Transferência efetuada com sucesso!")
     } else {
         println("Falha na Transferência!")
@@ -49,11 +45,17 @@ fun main() {
     println("Saldo Deku: ${contaDeku.saldo}")
 }
 
-class Conta() {
-    var titular = ""
-    var numeroConta = 0
+class Conta(
+    var titular: String,
+    var numeroConta: Int
+) {
     var saldo = 0.0
         private set
+
+//    constructor(titular: String, numeroConta: Int){
+//        this.titular = titular
+//        this.numeroConta = numeroConta
+//    }
 
     fun deposita(valor: Double) {
         if (valor > 0) {
@@ -73,25 +75,24 @@ class Conta() {
             destino.saldo += valor
             return true
         }
-            return false
+        return false
     }
 }
 
 fun testaCopiasEReferencias() {
-    val numeroX = 10
-    var numeroY = numeroX
-    numeroY++
-
-    println("numeroX $numeroX")
-    println("numeroY $numeroY")
-
-    val contaJoao = Conta()
-    contaJoao.titular = "João"
-    var contaMaria = contaJoao
-    contaMaria.titular = "Maria"
-
-    println("titular da conta ${contaJoao.titular}")
-    println("titular da conta ${contaMaria.titular}")
+//    val numeroX = 10
+//    var numeroY = numeroX
+//    numeroY++
+//
+//    println("numeroX $numeroX")
+//    println("numeroY $numeroY")
+//
+//    val contaJoao = Conta("Joao")
+//    var contaMaria = contaJoao
+//    contaMaria.titular = "Maria"
+//
+//    println("titular da conta ${contaJoao.titular}")
+//    println("titular da conta ${contaMaria.titular}")
 }
 
 fun testaCondicoes(saldo: Double) {
