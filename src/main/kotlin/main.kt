@@ -34,9 +34,22 @@ fun main() {
     println("Sacando da conta do Deku:")
     contaDeku.saca(200.0)
     println(contaDeku.saldo)
+
+
+    println("----------------------------------")
+    println("Transferencia da conta do Deku para o Todoroki")
+
+    if(contaDeku.transfere(100.0, contaTodoroki)){
+        println("Transferência efetuada com sucesso!")
+    } else {
+        println("Falha na Transferência!")
+    }
+
+    println("Saldo Todoroki: ${contaTodoroki.saldo}")
+    println("Saldo Deku: ${contaDeku.saldo}")
 }
 
-class Conta(){
+class Conta() {
     var titular = ""
     var numeroConta = 0
     var saldo = 0.0
@@ -45,14 +58,23 @@ class Conta(){
         this.saldo += valor
     }
 
-    fun saca(valor: Double){
-        if(saldo >= valor){
+    fun saca(valor: Double) {
+        if (saldo >= valor) {
             saldo -= valor
         }
     }
+
+    fun transfere(valor: Double, destino: Conta): Boolean {
+        if (saldo >= valor) {
+            saldo -= valor
+            destino.saldo += valor
+            return true
+        }
+            return false
+    }
 }
 
-fun testaCopiasEReferencias(){
+fun testaCopiasEReferencias() {
     val numeroX = 10
     var numeroY = numeroX
     numeroY++
@@ -77,9 +99,9 @@ fun testaCondicoes(saldo: Double) {
     }
 }
 
-fun testaLacos(){
+fun testaLacos() {
 //        Ordem crescente
-    for (i in 1..5){
+    for (i in 1..5) {
         val titular: String = "Todoroki"
         val numeroConta: Int = i + 1000
         var saldo: Double = i + 10.0
@@ -140,7 +162,6 @@ fun testaLacos(){
 //        println("Saldo da conta: $saldo")
 //        i++
 //    } while (i < 5)
-
 
 
 //      Utilizando Break;
