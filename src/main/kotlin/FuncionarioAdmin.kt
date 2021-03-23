@@ -5,7 +5,7 @@ abstract class FuncionarioAdmin(
     val senha: Int
 ): Funcionario(nome = nome, cpf = cpf, salario = salario) {
 
-    fun autenticar(senha: Int): Boolean {
+    open fun autenticar(senha: Int): Boolean {
         if (this.senha == senha) {
             return true
         }

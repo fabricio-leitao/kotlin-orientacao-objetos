@@ -14,4 +14,7 @@ class Diretor(
     override val bonificacao: Double
            get() = salario + plr
 
+    override fun autenticar(senha: Int): Boolean {
+        return super<FuncionarioAdmin>.autenticar(senha)
+    }
 }
