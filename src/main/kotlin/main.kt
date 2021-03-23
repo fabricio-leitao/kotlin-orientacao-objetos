@@ -38,12 +38,17 @@ fun main() {
         println("Auntenticação falhou!")
     }
 
+    val kurama = Analista(nome = "Kurama", cpf = "555.555.555-55", salario = 3000.0)
+
+
     val calculadora = CalculadoraBonificacao()
     calculadora.registra(todoroki)
     calculadora.registra(deku)
     calculadora.registra(uraraka)
+    calculadora.registra(kurama)
 
     println("Total de bonificação: ${calculadora.total}")
+
 
 }
 
