@@ -22,6 +22,21 @@ fun main() {
     } else {
         println("Auntenticação falhou!")
     }
+
+    println("---------------------------------")
+    var uraraka = Diretor("Uraraka", "123.123.123-12", 4000.0, 1234, 200.0)
+
+    println("Nome ${uraraka.nome}")
+    println("CPF ${uraraka.cpf}")
+    println("Salario ${uraraka.salario}")
+    println("Bonificação ${uraraka.bonificacao()}")
+    println("Participação nos lucros ${uraraka.plr}")
+
+    if(uraraka.autenticar(1234)){
+        println("Autenticação com sucesso!")
+    } else {
+        println("Auntenticação falhou!")
+    }
 }
 
 
