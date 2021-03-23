@@ -1,55 +1,25 @@
 fun main() {
     println("Bem vindo ao Bytebank!")
 
+    val contaCorrente = ContaCorrente("Gokudera", 1000)
+    val contaPoupanca = ContaPoupanca("Minato", 1001)
 
-    var todoroki = Funcionario("Todoroki", "111.222.333-44", 1000.0)
+    contaCorrente.deposita(1000.0)
+    contaPoupanca.deposita(1000.0)
 
-    println("nome ${todoroki.nome}")
-    println("cpf ${todoroki.cpf}")
-    println("salario ${todoroki.salario}")
-    println("Bonificação ${todoroki.bonificacao()}")
+    println("saldo corrente: ${contaCorrente.saldo}")
+    println("saldo poupança: ${contaPoupanca.saldo}")
 
-    println("----------------------------------")
-    var deku = Gerente("Deku", "111.222.333-44", 2000.0, senha = 1234)
+    contaCorrente.saca(100.0)
+    contaPoupanca.saca(100.0)
 
-    println("nome ${deku.nome}")
-    println("cpf ${deku.cpf}")
-    println("salario ${deku.salario}")
-    println("Bonificação ${deku.bonificacao()}")
+    println("saldo após o saque corrente: ${contaCorrente.saldo}")
+    println("saldo após o saque poupança: ${contaPoupanca.saldo}")
 
-    if(deku.autenticar(1234)){
-        println("Autenticação com sucesso!")
-    } else {
-        println("Auntenticação falhou!")
-    }
+    contaCorrente.transfere(100.0, contaPoupanca)
 
-    println("---------------------------------")
-    var uraraka = Diretor("Uraraka", "123.123.123-12", 4000.0, 1234, 200.0)
-
-    println("Nome ${uraraka.nome}")
-    println("CPF ${uraraka.cpf}")
-    println("Salario ${uraraka.salario}")
-    println("Bonificação ${uraraka.bonificacao()}")
-    println("Participação nos lucros ${uraraka.plr}")
-
-    if(uraraka.autenticar(1234)){
-        println("Autenticação com sucesso!")
-    } else {
-        println("Auntenticação falhou!")
-    }
-
-    val kurama = Analista(nome = "Kurama", cpf = "555.555.555-55", salario = 3000.0)
-
-
-    val calculadora = CalculadoraBonificacao()
-    calculadora.registra(todoroki)
-    calculadora.registra(deku)
-    calculadora.registra(uraraka)
-    calculadora.registra(kurama)
-
-    println("Total de bonificação: ${calculadora.total}")
-
-
+    println("saldo corrente após transferir para a poupança: ${contaCorrente.saldo}")
+    println("saldo poupança após receber transferência da corrente: ${contaPoupanca.saldo}")
 }
 
 
