@@ -12,7 +12,7 @@ fun testaFuncionarios(){
     println("nome ${deku.nome}")
     println("cpf ${deku.cpf}")
     println("salario ${deku.salario}")
-    println("Bonificação ${deku.bonificacao()}")
+    println("Bonificação ${deku.bonificacao}")
 
     if(deku.autenticar(1234)){
         println("Autenticação com sucesso!")
@@ -26,7 +26,7 @@ fun testaFuncionarios(){
     println("Nome ${uraraka.nome}")
     println("CPF ${uraraka.cpf}")
     println("Salario ${uraraka.salario}")
-    println("Bonificação ${uraraka.bonificacao()}")
+    println("Bonificação ${uraraka.bonificacao}")
     println("Participação nos lucros ${uraraka.plr}")
 
     if(uraraka.autenticar(1234)){
