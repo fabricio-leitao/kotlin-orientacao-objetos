@@ -5,9 +5,9 @@ class Gerente(
     var senha: Int
 ) : Funcionario(nome = nome, cpf = cpf, salario = salario) {
 
-//    fun bonificacao(): Double {
-//        return salario * 0.2
-//    }
+    override fun bonificacao(): Double {
+            return salario * 0.2
+        }
 
     fun autenticar(senha: Int): Boolean {
         if (this.senha == senha) {
