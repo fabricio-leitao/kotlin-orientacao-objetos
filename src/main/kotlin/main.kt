@@ -1,6 +1,12 @@
+import copia.Cliente as ClienteCopia
+import java.lang.String as StringJava
+
 fun main() {
 
-    testaAutenticacao()
+    val palavra: kotlin.String = ""
+    val palavraJava: StringJava = StringJava("")
+
+    val cliente: ClienteCopia
 }
 
 
