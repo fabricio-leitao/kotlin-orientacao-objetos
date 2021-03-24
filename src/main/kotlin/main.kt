@@ -18,9 +18,7 @@ fun main() {
     val deku = Cliente(nome = "Deku", cpf = "", senha = 1)
     val contaPoupanca = ContaPoupanca(titular = deku, numeroConta = 1000)
 
-    //testaContasDiferentes()
-
-    println("Total de contas: $totalContas")
+    println("Total de contas: ${Conta.total}")
 }
 
 
