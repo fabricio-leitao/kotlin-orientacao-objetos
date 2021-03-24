@@ -1,25 +1,23 @@
 import br.com.zup.bytebank.modelo.*
+import br.com.zup.bytebank.teste.testaObjects
 
 fun main() {
 
-    val tai = object: Autenticavel {
-        val nome: String = "Tai"
-        val cpf: String = "111.111.111-11"
-        val senha: Int = 1000
+    val endereco = Endereco()
+    val objeto: Any = Any()
 
-        override fun autenticar(senha: Int) = this.senha == senha
-    }
-
-    val sistemaInterno = SistemaInterno()
-    sistemaInterno.entra(tai, 1000)
-
-    println("Nome do cliente ${tai.nome}")
-
-    val deku = Cliente(nome = "Deku", cpf = "", senha = 1)
-    val contaPoupanca = ContaPoupanca(titular = deku, numeroConta = 1000)
-
-    println("Total de contas: ${Conta.total}")
+    imprime(objeto)
+    imprime(1)
+    imprime(1.0)
+    val teste: Any = imprime(endereco)
+    println(teste)
 }
+
+fun imprime(valor: Any) : Any{
+    println(valor)
+    return valor
+} 
+
 
 
 
