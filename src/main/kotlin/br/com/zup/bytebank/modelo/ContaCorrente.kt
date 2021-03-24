@@ -1,0 +1,16 @@
+package br.com.zup.bytebank.modelo
+
+class ContaCorrente(
+    titular: Cliente,
+    numeroConta: Int
+) : Conta(
+    titular = titular,
+    numeroConta = numeroConta
+) {
+    override fun saca(valor: Double) {
+        val valorComtaxa = valor + 0.1
+        if(this.saldo >= valorComtaxa){
+            this.saldo -= valorComtaxa
+        }
+    }
+}

@@ -1,0 +1,13 @@
+package br.com.zup.bytebank.modelo
+
+interface Autenticavel {
+
+    val senha: Int
+
+    fun autenticar(senha: Int): Boolean {
+        if (this.senha == senha) {
+            return true
+        }
+        return false
+    }
+}
