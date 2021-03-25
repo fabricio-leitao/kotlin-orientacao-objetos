@@ -1,8 +1,12 @@
 import br.com.zup.bytebank.modelo.Endereco
 
 fun main() {
-    var endereco: Endereco? = null
-    val enderecoNaoNulo: Endereco = endereco!!
-    enderecoNaoNulo.logradouro
+    var endereco: Endereco? = Endereco(logradouro = "rua vergueiro")
+    val logradouroNovo: String? = endereco?.logradouro
+    println(endereco?.logradouro?.length)
+    endereco = null
+    endereco?.let {endereco: Endereco? ->
+        println(endereco?.logradouro?.length)
+    }
 }
 
