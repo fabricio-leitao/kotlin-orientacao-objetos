@@ -3,20 +3,26 @@ import br.com.zup.bytebank.teste.testaObjects
 
 fun main() {
 
-    val endereco = Endereco()
+    val endereco = Endereco(
+        logradouro = "Rua dos cravos",
+        complemento = "Apartamento",
+        cep = "00000-000"
+    )
 
-    val objeto: Any = Any()
+    val enderecoNovo = Endereco(
+        bairro = "Cafundós de Judas",
+        numero = 970,
+        cep = "00000-000"
+    )
+    println(endereco.equals(enderecoNovo))
 
-    imprime(objeto)
-    imprime(Unit)
-    imprime(Any())
-    imprime(1)
-    imprime(1.0)
-    val teste: Any = imprime(endereco)
-    println(teste)
-    imprime(endereco)
+    println(endereco.hashCode())
+    println(enderecoNovo.hashCode())
 
-    testaFuncionarios()
+    println(endereco.toString())
+    println(enderecoNovo.toString())
+
+    println("${endereco.javaClass}@${Integer.toHexString(endereco.hashCode())}")
 }
 
 fun imprime(valor: Any) : Any{
