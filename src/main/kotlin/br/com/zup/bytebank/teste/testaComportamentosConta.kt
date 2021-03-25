@@ -1,3 +1,4 @@
+import br.com.zup.bytebank.exception.FalhaAutenticacaoException
 import br.com.zup.bytebank.exception.SaldoInsuficienteException
 import br.com.zup.bytebank.modelo.Cliente
 import br.com.zup.bytebank.modelo.ContaCorrente
@@ -44,11 +45,15 @@ fun testaComportamentosConta() {
     println("Transferencia da conta do Deku para o Todoroki")
 
     try {
-        contaDeku.transfere(100.0, contaTodoroki)
+        contaDeku.transfere(100.0, contaTodoroki, 13)
         println("Transferência efetuada com sucesso!")
     } catch (e: SaldoInsuficienteException) {
         println("Falha na Transferência!")
         println("Saldo insuficiente")
+        e.printStackTrace()
+    } catch (e: FalhaAutenticacaoException){
+        println("Falha na transferência")
+        println("Falha na autenticação")
         e.printStackTrace()
     }
 
