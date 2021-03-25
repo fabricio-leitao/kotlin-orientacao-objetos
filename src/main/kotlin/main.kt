@@ -15,7 +15,12 @@ fun main() {
 
 fun funcao1() {
     println("início funcao1")
-    funcao2()
+    try {
+        funcao2()
+    }catch (e: ClassCastException){
+        println("ClassCastException foi pego")
+    }
+
     println("fim funcao1")
 }
 
@@ -28,19 +33,12 @@ fun funcao2() {
             endereco as Endereco
         }
     }catch (e: ClassCastException){
+        println(e.message)
+        println(e.stackTrace)
+        println(e.cause)
+        println(e.printStackTrace())
         println("ClassCastException foi pega")
     }
-
-//    for (i in 1..5){
-//        println(i)
-//        val endereco = Any()
-//        try {
-//            endereco as Endereco
-//        } catch (e: ClassCastException){
-//            println("ClassCastException foi pega")
-//        }
-//
-//    }
     println("fim funcao2")
 }
 
