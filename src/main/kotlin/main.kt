@@ -2,7 +2,7 @@ import br.com.zup.bytebank.exception.SaldoInsuficienteException
 
 fun main() {
     println("início main")
-    funcao1()
+    testaComportamentosConta()
     println("fim main")
 }
 

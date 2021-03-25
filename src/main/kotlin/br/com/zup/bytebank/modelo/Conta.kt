@@ -1,5 +1,7 @@
 package br.com.zup.bytebank.modelo
 
+import br.com.zup.bytebank.exception.SaldoInsuficienteException
+
 
 abstract class Conta(
     var titular: Cliente,
@@ -25,13 +27,13 @@ abstract class Conta(
 
     abstract fun saca(valor: Double)
 
-    fun transfere(valor: Double, destino: Conta): Boolean {
-        if (saldo >= valor) {
+    fun transfere(valor: Double, destino: Conta){
+        if(saldo < valor){
+            throw SaldoInsuficienteException()
+        }
             saldo -= valor
             destino.saldo += valor
-            return true
-        }
-        return false
+
     }
 }
 

@@ -1,10 +1,11 @@
+import br.com.zup.bytebank.exception.SaldoInsuficienteException
 import br.com.zup.bytebank.modelo.Cliente
 import br.com.zup.bytebank.modelo.ContaCorrente
 import br.com.zup.bytebank.modelo.ContaPoupanca
 
 fun testaComportamentosConta() {
 
-    val todoroki = Cliente( nome = "Todoroki", cpf = "123.123.123-34", senha = 1234)
+    val todoroki = Cliente(nome = "Todoroki", cpf = "123.123.123-34", senha = 1234)
 
     val contaTodoroki = ContaCorrente(titular = todoroki, numeroConta = 123)
     contaTodoroki.deposita(200.0)
@@ -42,11 +43,15 @@ fun testaComportamentosConta() {
     println("----------------------------------")
     println("Transferencia da conta do Deku para o Todoroki")
 
-    if (contaDeku.transfere(100.0, contaTodoroki)) {
+    try {
+        contaDeku.transfere(100.0, contaTodoroki)
         println("Transferência efetuada com sucesso!")
-    } else {
+    } catch (e: SaldoInsuficienteException) {
         println("Falha na Transferência!")
+        println("Saldo insuficiente")
+        e.printStackTrace()
     }
+
 
     println("Saldo Todoroki: ${contaTodoroki.saldo}")
     println("Saldo Deku: ${contaDeku.saldo}")
