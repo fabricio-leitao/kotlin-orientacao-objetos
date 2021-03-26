@@ -1,3 +1,7 @@
+import br.com.zup.bytebank.teste.bigDecimalArrayOf
+import br.com.zup.bytebank.teste.calculaAumentoRelativo
+import br.com.zup.bytebank.teste.media
+import br.com.zup.bytebank.teste.somatoria
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -15,24 +19,20 @@ fun main() {
 
     val gastoInicial = salariosComAumento.somatoria()
     println(gastoInicial)
-}
 
-fun calculaAumentoRelativo(salario: BigDecimal, aumento: BigDecimal) =
-    if (salario < "5000".toBigDecimal()) {
-        salario + "500".toBigDecimal()
-    } else {
-        (salario * aumento).setScale(2, RoundingMode.UP)
+    val meses = 6.toBigDecimal()
+    val gastoTotal = salariosComAumento.fold(gastoInicial) { acumulador, salario ->
+        acumulador + (salario * meses).setScale(2, RoundingMode.UP)
     }
+    println(gastoTotal)
 
-//vararg é um tipo especial do kotlin onde podemos passar variáveis para uma função
-fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array<BigDecimal>(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
-}
+//    val salariosOrdenados = salariosComAumento.sorted()
+//    val tresPrimeirosSalarios = salariosOrdenados.take(3)
+//    val tresUltimosSalarios: Array<BigDecimal> = salariosOrdenados.takeLast(3).toTypedArray()
+//    val media = tresUltimosSalarios.media()
+    val media = salariosComAumento.sorted().takeLast(3).toTypedArray().media()
+    println(media)
 
-fun Array<BigDecimal>.somatoria(): BigDecimal {
-    return this.reduce { acumulator, valor ->
-        acumulator + valor
-    }
+    val mediaMenoresSalarios = salariosComAumento.sorted().take(3).toTypedArray().media()
+    println(mediaMenoresSalarios)
 }
