@@ -1,21 +1,24 @@
-import br.com.zup.bytebank.modelo.Endereco
-import java.lang.IllegalStateException
-
 fun main() {
-    var endereco: Endereco? = Endereco(logradouro = "rua vergueiro", complemento = "prédio")
-    val logradouroNovo: String? = endereco?.logradouro
-    endereco?.let {
-        println(endereco?.logradouro?.length)
-        val tamanhoComplemento: Int = it.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vazio")
-        println(tamanhoComplemento)
+    val idade1 = 25
+    val idade2 = 19
+    val idade3 = 33
+
+    val maiorIdade = if(idade1 > idade2 && idade1 > idade3){
+        idade1
+    } else if (idade2 > idade3){
+        idade2
+    } else{
+        idade3
     }
 
-    teste("")
-    teste(1)
+    println(maiorIdade)
+
+    val idades = IntArray(4)
+    idades[0] = 25
+    idades[1] = 19
+    idades[2] = 33
+    idades[3] = 20
 }
 
-fun teste(valor: Any) {
-    val numero: Int? = valor as? Int
-    println(numero)
-}
+
 
