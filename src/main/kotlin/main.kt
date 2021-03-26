@@ -1,24 +1,30 @@
 fun main() {
-    val idades: IntArray = intArrayOf(25, 19, 33, 20, 55, 40)
 
-    var maiorIdade = Int.MIN_VALUE
-    for (idade in idades){
-        if(idade > maiorIdade){
-            maiorIdade = idade
-        }
+    val salarios: DoubleArray = doubleArrayOf(1500.50, 2300.0, 5000.0, 8000.0, 10000.0)
+
+    val aumento = 1.1
+//    var indice = 0
+//    for (salario in salarios){
+//        salarios[indice] = salario * aumento
+//        indice++
+//    }
+//
+//    println(salarios.contentToString())
+
+    for (indice in salarios.indices){
+        salarios[indice] = salarios[indice] * aumento
     }
 
-    println(maiorIdade)
+    println(salarios.contentToString())
 
-    var menorIdade = Int.MAX_VALUE
-    idades.forEach { idade ->
-        if(idade < menorIdade){
-            menorIdade = idade
-        }
+    salarios.forEachIndexed{ i, salario ->
+        salarios[i] = salario * aumento
     }
 
-    println(menorIdade)
+    println(salarios.contentToString())
+
 }
+
 
 
 
