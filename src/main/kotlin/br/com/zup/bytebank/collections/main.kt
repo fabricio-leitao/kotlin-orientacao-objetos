@@ -2,9 +2,27 @@ package br.com.zup.bytebank.collections
 
 fun main() {
 
-    //Collection, List e Iterable
-    //listOf, setOf
-    val nomes: Collection<String> = setOf(
+    val banco = BancoDeNomes()
+//    banco.nomes.add("Alex")
+    banco.salva("Alex")
+    println(banco.nomes)
+    println(BancoDeNomes().nomes)
+}
+
+class BancoDeNomes{
+    val nomes: Collection<String> get() = dados
+
+    fun salva(nome: String){
+        dados.add(nome)
+    }
+
+    companion object {
+        private val dados = mutableListOf<String>()
+    }
+}
+
+fun testaColecao() {
+    val nomes: Collection<String> = mutableListOf(
         "Alex",
         "Fran",
         "Gui",
@@ -12,7 +30,9 @@ fun main() {
         "Ana"
     )
 
-    for(nome in nomes){
+//    nomes.add("Paulo")
+//    nomes.remove("Alex")
+    for (nome in nomes) {
         println(nome)
     }
 
