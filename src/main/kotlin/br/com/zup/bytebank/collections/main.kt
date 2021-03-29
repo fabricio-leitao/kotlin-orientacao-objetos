@@ -50,5 +50,30 @@ fun main() {
         numero % 2 == 0
     }
     println(pedidosPares)
+
+    println(pedidos + Pair(7, 70.0))
+    println(pedidos + mapOf(8 to 90.0, 9 to 20.0))
+
+    println(pedidos - 6)
+    println(pedidos - listOf(6, 5))
+
+    pedidos.putAll(setOf<Pair<Int, Double>>(7 to 90.0, 8 to 20.0))
+    println(pedidos)
+    pedidos.putAll(listOf<Pair<Int, Double>>(7 to 90.0, 8 to 20.0, 8 to 30.0))
+    println(pedidos)
+    pedidos += (listOf<Pair<Int, Double>>(7 to 90.0, 8 to 20.0, 8 to 30.0))
+    println(pedidos)
+
+    pedidos.keys.remove(1)
+    println(pedidos)
+
+    pedidos.values.remove(50.0)
+    println(pedidos)
+
+    pedidos.values.remove(100.0)
+    println(pedidos)
+
+    pedidos -= 6
+    println(pedidos)
 }
 
