@@ -2,12 +2,15 @@ package br.com.zup.bytebank.collections
 
 fun main() {
 
-    val assistiramCursoAndroid = listOf("Alex", "Fran", "Gui", "Maria")
-    val assistiramCursoKotlin = listOf("Alex", "Paulo", "Maria")
-    val assistiramAmbos = assistiramCursoAndroid + assistiramCursoKotlin
-//    assistiramAmbos.addAll(assistiramCursoAndroid)
-//    assistiramAmbos.addAll(assistiramCursoKotlin)
-    println(assistiramAmbos.distinct())
+    val assistiramCursoAndroid: MutableSet<String> = mutableSetOf("Alex", "Fran", "Gui", "Maria")
+    val assistiramCursoKotlin: MutableSet<String> = mutableSetOf("Alex", "Paulo", "Maria")
+//    val assistiramAmbos: Set<String> = assistiramCursoKotlin.plus(assistiramCursoAndroid)
+    val assistiramAmbos = mutableSetOf<String>()
+    assistiramAmbos.add("Ana")
+    assistiramAmbos.add("Ana")
+    assistiramAmbos.addAll(assistiramCursoAndroid)
+    assistiramAmbos.addAll(assistiramCursoKotlin)
+    println(assistiramAmbos)
 
 }
 
