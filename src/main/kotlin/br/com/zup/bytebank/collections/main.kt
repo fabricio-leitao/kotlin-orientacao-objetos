@@ -4,39 +4,51 @@ fun main() {
 
     val pedidos: MutableMap<Int, Double> = mutableMapOf(
         Pair(1, 20.0),
-        Pair(2, 34.0),
-        3 to 50.0
+        Pair(2, 64.0),
+        3 to 50.0,
+        4 to 100.0,
+        5 to 150.0,
+        6 to 80.0
     )
-    println(pedidos)
-    val pedido = pedidos[3]
-    pedido?.let {
-        println("pedido $it")
+
+//    val valorPedido = pedidos.get(5)
+//    println(valorPedido)
+//    val valorPedido = pedidos.getValue(5)
+//    println(valorPedido)
+
+    val mensagem: Double? = pedidos.getOrElse(0, {
+        0.0
+    })
+    println(mensagem)
+    println(pedidos.getOrDefault(1, -1.0))
+    println(pedidos.getOrDefault(1, -1.0))
+
+    println(pedidos.keys)
+
+    for (numerosDePedido in pedidos.keys){
+        println("Pedido $numerosDePedido")
     }
-    for (p: Map.Entry<Int, Double> in pedidos){
-        println("Número do pedido: ${p.key}")
-        println("Valor do pedido: ${p.value}")
+
+    println(pedidos.values)
+
+    for(valor in pedidos.values){
+        println("Valor do pedido: $valor")
     }
 
-    pedidos[4] = 70.0
-    println(pedidos)
+    val pedidosFiltrados = pedidos.filter { (numero, valor) ->
+        numero % 2 == 0 && valor > 50.0
+    }
 
-    pedidos.put(5, 80.0)
-    println(pedidos)
+    println(pedidosFiltrados)
 
-    pedidos[1] = 100.0
-    println(pedidos)
+    val pedidosAcima = pedidos.filterValues { valor ->
+        valor > 70.0
+    }
+    println(pedidosAcima)
 
-    pedidos.putIfAbsent(6, 200.0)
-    println(pedidos)
-
-    //Apenas insere se não existir essa chave
-    pedidos.putIfAbsent(6, 300.0)
-    println(pedidos)
-
-    pedidos.remove(6)
-    println(pedidos)
-
-    //Somente remove se os valores são iguais
-    pedidos.remove(3, 100)
-    println(pedidos)
+    val pedidosPares = pedidos.filterKeys { numero ->
+        numero % 2 == 0
+    }
+    println(pedidosPares)
 }
+
