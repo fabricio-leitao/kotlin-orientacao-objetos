@@ -2,28 +2,14 @@ package br.com.zup.bytebank.collections
 
 fun main() {
 
-    val assistiramCursoAndroid: MutableSet<String> = mutableSetOf("Alex", "Fran", "Gui", "Maria")
-    val assistiramCursoKotlin: MutableSet<String> = mutableSetOf("Alex", "Paulo", "Maria")
-    val assistiramAmbos = mutableSetOf<String>()
-    assistiramAmbos.add("Ana")
-    assistiramAmbos.add("Ana")
-    assistiramAmbos.addAll(assistiramCursoAndroid)
-    assistiramAmbos.addAll(assistiramCursoKotlin)
-    println(assistiramAmbos)
-
-    println(assistiramCursoAndroid + assistiramCursoKotlin)
-    println(assistiramCursoAndroid.union(assistiramCursoKotlin))
-    //característica unfix que não necessita do ponto
-    println(assistiramCursoAndroid union assistiramCursoKotlin)
-    println(assistiramCursoKotlin - assistiramCursoAndroid)
-    println(assistiramCursoKotlin subtract  assistiramCursoAndroid)
-
-    println(assistiramCursoKotlin intersect assistiramCursoAndroid)
-
-    val assistiramList = assistiramAmbos.toMutableList()
-    assistiramList.add("Ana")
-    println(assistiramList)
-    println(assistiramList.toSet())
-
+    val pedidos = mapOf<Int, Double>(Pair(1, 20.0), Pair(2, 34.0), 3 to 50.0)
+    println(pedidos)
+    val pedido = pedidos[3]
+    pedido?.let {
+        println("pedido $it")
+    }
+    for (pedido: Map.Entry<Int, Double> in pedidos){
+        println("Número do pedido: ${pedido.key}")
+        println("Valor do pedido: ${pedido.value}")
+    }
 }
-
