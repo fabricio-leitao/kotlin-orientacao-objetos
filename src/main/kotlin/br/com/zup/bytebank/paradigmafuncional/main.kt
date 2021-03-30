@@ -2,16 +2,17 @@ package br.com.zup.bytebank.paradigmafuncional
 
 
 fun main() {
-    println(testaTipoFuncaoReferencia())
-    println(testaTipoFuncaoClasse())
-    val minhaFuncaoLambda = {
-        println("Executa como lambda")
+//    println(testaTipoFuncaoReferencia())
+//    println(testaTipoFuncaoClasse())
+    val minhaFuncaoLambda = { a: Int, b: Int ->
+        a + b
     }
-    println(minhaFuncaoLambda())
-    val minhaFuncaoAnonima: () -> Unit = fun () {
-        println("Executa como anonima")
+    println(minhaFuncaoLambda(15, 10))
+
+    val minhaFuncaoAnonima = fun (a: Int, b: Int): Int {
+        return a + b
     }
-    println(minhaFuncaoAnonima())
+    println(minhaFuncaoAnonima(20, 10))
 }
 
 fun testaTipoFuncaoClasse() {
