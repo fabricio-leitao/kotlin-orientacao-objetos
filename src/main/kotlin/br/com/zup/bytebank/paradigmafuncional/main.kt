@@ -2,6 +2,8 @@ package br.com.zup.bytebank.paradigmafuncional
 
 
 fun main() {
+    println(testaTipoFuncaoReferencia())
+    println(testaTipoFuncaoClasse())
     val minhaFuncaoLambda = {
         println("Executa como lambda")
     }
@@ -13,22 +15,20 @@ fun main() {
 }
 
 fun testaTipoFuncaoClasse() {
-    val minhaFuncaoClasses: () -> Unit = Teste()
-    println(minhaFuncaoClasses())
+    val minhaFuncaoClasses: (Int, Int) -> Int = Soma()
+    println(minhaFuncaoClasses(5, 10))
 }
 
 fun testaTipoFuncaoReferencia() {
-    val minhaFuncao: () -> Unit = ::teste
-    println(minhaFuncao())
+    val minhaFuncao: (Int, Int) -> Int = ::soma
+    println(minhaFuncao(5, 10))
 }
 
-fun teste(){
-    println("Executa teste")
+fun soma(a: Int, b: Int) : Int{
+    return a + b
 }
 
-class Teste: () -> Unit{
-    override fun invoke() {
-        println("executa invoke teste")
-    }
+class Soma: (Int, Int) -> Int{
+    override fun invoke(a: Int, b: Int): Int = a + b
 
 }
