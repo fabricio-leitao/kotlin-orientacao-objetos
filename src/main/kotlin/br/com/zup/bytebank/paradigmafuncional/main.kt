@@ -9,9 +9,26 @@ fun main() {
 //    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3185)
 //    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
 //    println(enderecoEmMaiusculo)
-    Endereco(logradouro = "rua vergueiro", numero = 3185).run {
+//    Endereco(logradouro = "rua vergueiro", numero = 3185).run {
+//        "${logradouro}, ${numero}".toUpperCase()
+////    }.let(::println)
+//    }.let { enderecoEmMaiusculo: String ->
+//        println(enderecoEmMaiusculo)
+//    }
+
+    run {
+        println("Execução do run sem extensão")
+    }
+
+    val endereco = Endereco()
+        .also { println("Criando endereço") }
+        .apply {
+        logradouro = "rua vergueiro"
+        numero = 3185
+    }
+
+    with(endereco){
         "${logradouro}, ${numero}".toUpperCase()
-//    }.let(::println)
     }.let { enderecoEmMaiusculo: String ->
         println(enderecoEmMaiusculo)
     }
