@@ -3,10 +3,11 @@ package br.com.zup.bytebank.paradigmafuncional
 import br.com.zup.bytebank.modelo.Cliente
 import br.com.zup.bytebank.modelo.ContaPoupanca
 import br.com.zup.bytebank.modelo.Endereco
+import br.com.zup.bytebank.teste.testaHOF
 
 fun main() {
 
-
+ testaHOF()
 }
 
 public fun testaRun() {
